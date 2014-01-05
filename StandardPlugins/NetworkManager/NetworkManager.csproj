@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{C4C77D82-2659-4F06-9AD9-08AC0BAD8C1A}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>NetworkManager</RootNamespace>
+    <AssemblyName>NetworkManager</AssemblyName>
+    <ReleaseVersion>2.2</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="Resources\" />
+    <Folder Include="src\Interfaces\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\ConnectionManager.cs" />
+    <Compile Include="src\DBusObject.cs" />
+    <Compile Include="src\DeviceManager.cs" />
+    <Compile Include="src\DeviceStateChangedArgs.cs" />
+    <Compile Include="src\Enums.cs" />
+    <Compile Include="src\NetworkConnection.cs" />
+    <Compile Include="src\NetworkDevice.cs" />
+    <Compile Include="src\NetworkManager.cs" />
+    <Compile Include="src\WiredConnection.cs" />
+    <Compile Include="src\WiredDevice.cs" />
+    <Compile Include="src\WirelessAccessPoint.cs" />
+    <Compile Include="src\WirelessConnection.cs" />
+    <Compile Include="src\WirelessDevice.cs" />
+    <Compile Include="src\Interfaces\IAccessPoint.cs" />
+    <Compile Include="src\Interfaces\IActiveConnection.cs" />
+    <Compile Include="src\Interfaces\IConnectionManager.cs" />
+    <Compile Include="src\Interfaces\IDHCP4Config.cs" />
+    <Compile Include="src\Interfaces\IIP4Config.cs" />
+    <Compile Include="src\Interfaces\INetworkConnection.cs" />
+    <Compile Include="src\Interfaces\INetworkDevice.cs" />
+    <Compile Include="src\Interfaces\INetManager.cs" />
+    <Compile Include="src\Interfaces\IWiredDevice.cs" />
+    <Compile Include="src\Interfaces\IWirelessDevice.cs" />
+    <Compile Include="src\NetworkManagerDocklet.cs" />
+    <Compile Include="src\NetworkManagerItemProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Docky.Services\Docky.Services.csproj">
+      <Project>{8A6E0EDD-6443-4F99-9EAC-D9CC906F080D}</Project>
+      <Name>Docky.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Docky.Items\Docky.Items.csproj">
+      <Project>{AB6E0EDD-6443-4F99-9EAC-DABC906F080D}</Project>
+      <Name>Docky.Items</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+    <Reference Include="dbus-sharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5675b0c3093115b5">
+      <Package>dbus-sharp-1.0</Package>
+    </Reference>
+    <Reference Include="dbus-sharp-glib, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5675b0c3093115b5">
+      <Package>dbus-sharp-glib-1.0</Package>
+    </Reference>
+    <Reference Include="Mono.Cairo" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\NetworkManager.addin.xml">
+      <LogicalName>NetworkManager.addin.xml</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>

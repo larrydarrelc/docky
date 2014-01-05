@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{2F5FDD02-4BDA-4E80-8B92-A8BD55FFBC81}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>BatteryMonitor</RootNamespace>
+    <AssemblyName>BatteryMonitor</AssemblyName>
+    <ReleaseVersion>2.2</ReleaseVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+    <Reference Include="dbus-sharp, Version=1.0.0.0, Culture=neutral, PublicKeyToken=5675b0c3093115b5">
+      <Package>dbus-sharp-1.0</Package>
+    </Reference>
+    <Reference Include="Mono.Cairo" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Resources\battery\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="src\BatteryMonitorItemProvider.cs" />
+    <Compile Include="src\BatteryMonitorProcItem.cs" />
+    <Compile Include="src\BatteryMonitorUPowerItem.cs" />
+    <Compile Include="src\BatteryMonitorSysItem.cs" />
+    <Compile Include="src\BatteryMonitorAbstractItem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\BatteryMonitor.addin.xml" />
+    <None Include="Resources\battery\battery_bottom.svg" />
+    <None Include="Resources\battery\battery_inside_10.svg" />
+    <None Include="Resources\battery\battery_inside_20.svg" />
+    <None Include="Resources\battery\battery_inside_30.svg" />
+    <None Include="Resources\battery\battery_inside_40.svg" />
+    <None Include="Resources\battery\battery_inside_50.svg" />
+    <None Include="Resources\battery\battery_inside_60.svg" />
+    <None Include="Resources\battery\battery_inside_70.svg" />
+    <None Include="Resources\battery\battery_inside_80.svg" />
+    <None Include="Resources\battery\battery_inside_90.svg" />
+    <None Include="Resources\battery\battery_inside_90_new.svg" />
+    <None Include="Resources\battery\battery_inside_100.svg" />
+    <None Include="Resources\battery\battery_plugged.svg" />
+    <None Include="Resources\battery\battery_top.svg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Docky.CairoHelper\Docky.CairoHelper.csproj">
+      <Project>{B23E0EDD-6443-4F99-9EAC-B7CC906F080D}</Project>
+      <Name>Docky.CairoHelper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Docky.Items\Docky.Items.csproj">
+      <Project>{AB6E0EDD-6443-4F99-9EAC-DABC906F080D}</Project>
+      <Name>Docky.Items</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Docky.Services\Docky.Services.csproj">
+      <Project>{8A6E0EDD-6443-4F99-9EAC-D9CC906F080D}</Project>
+      <Name>Docky.Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+</Project>

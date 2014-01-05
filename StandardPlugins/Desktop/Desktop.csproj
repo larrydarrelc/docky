@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A96B9440-A980-4E61-8B9A-BA64A2A696E6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>Desktop</RootNamespace>
+    <ReleaseVersion>2.2</ReleaseVersion>
+    <AssemblyName>Desktop</AssemblyName>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="src\Wink\Viewport.cs" />
+    <Compile Include="src\Wink\ScreenUtils.cs" />
+    <Compile Include="src\DesktopDockItem.cs" />
+    <Compile Include="src\ShowDesktopItem.cs" />
+    <Compile Include="src\TileDesktopItem.cs" />
+    <Compile Include="src\CascadeDesktopItem.cs" />
+    <Compile Include="src\DesktopActionsProvider.cs" />
+    <Compile Include="src\DesktopItemProvider.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="wnck-sharp, Version=2.20.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>wnck-sharp-1.0</Package>
+    </Reference>
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Posix" />
+    <Reference Include="Mono.Cairo" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\Docky.Items\Docky.Items.csproj">
+      <Project>{AB6E0EDD-6443-4F99-9EAC-DABC906F080D}</Project>
+      <Name>Docky.Items</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Docky.Services\Docky.Services.csproj">
+      <Project>{8A6E0EDD-6443-4F99-9EAC-D9CC906F080D}</Project>
+      <Name>Docky.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\Docky.CairoHelper\Docky.CairoHelper.csproj">
+      <Project>{B23E0EDD-6443-4F99-9EAC-B7CC906F080D}</Project>
+      <Name>Docky.CairoHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <None Include="Resources\icons\show-desktop.svg" />
+    <None Include="Resources\icons\window-tile.svg" />
+    <None Include="Resources\icons\window-cascade.svg" />
+    <None Include="Resources\Desktop.addin.xml" />
+  </ItemGroup>
+</Project>

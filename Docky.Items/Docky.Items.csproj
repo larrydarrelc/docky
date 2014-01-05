@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="utf-16"?>
+<Project DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003" ToolsVersion="4.0">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.21022</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{AB6E0EDD-6443-4F99-9EAC-DABC906F080D}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AssemblyName>Docky.Items</AssemblyName>
+    <ReleaseVersion>2.2</ReleaseVersion>
+    <RootNamespace>Docky.Items</RootNamespace>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <ConsolePause>false</ConsolePause>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="gdk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="glib-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>glib-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="gtk-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="pango-sharp, Version=2.12.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gtk-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="wnck-sharp, Version=2.20.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>wnck-sharp-1.0</Package>
+    </Reference>
+    <Reference Include="notify-sharp, Version=0.4.0.0, Culture=neutral, PublicKeyToken=2df29c54e245917a">
+      <Package>notify-sharp</Package>
+    </Reference>
+    <Reference Include="gio-sharp, Version=2.14.0.0, Culture=neutral, PublicKeyToken=35e10195dab3c99f">
+      <Package>gio-sharp-2.0</Package>
+    </Reference>
+    <Reference Include="Mono.Posix" />
+    <Reference Include="Mono.Cairo" />
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <ItemGroup>
+    <Folder Include="Docky.Items\" />
+    <Folder Include="Resources\" />
+    <Folder Include="Docky.Menus\" />
+    <Folder Include="Docky.Painters\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Docky.Items\AbstractDockItem.cs" />
+    <Compile Include="Docky.Items\PaintNeededEventArgs.cs" />
+    <Compile Include="Docky.Items\WnckDockItem.cs" />
+    <Compile Include="Docky.Items\FileApplicationProvider.cs" />
+    <Compile Include="Docky.Items\ItemsChangedArgs.cs" />
+    <Compile Include="Docky.Items\CurrentItemChangedArgs.cs" />
+    <Compile Include="Docky.Items\ApplicationDockItem.cs" />
+    <Compile Include="Docky.Items\IconDockItem.cs" />
+    <Compile Include="Docky.Items\ColoredIconDockItem.cs" />
+    <Compile Include="Docky.Items\ClickAnimation.cs" />
+    <Compile Include="Docky.Items\FileDockItem.cs" />
+    <Compile Include="Docky.Items\ActivityIndicator.cs" />
+    <Compile Include="Docky.Items\ItemState.cs" />
+    <Compile Include="Docky.Items\WindowDockItem.cs" />
+    <Compile Include="Docky.Items\ProxyDockItem.cs" />
+    <Compile Include="Docky.Menus\MenuItem.cs" />
+    <Compile Include="Docky.Menus\ProxyMenuItem.cs" />
+    <Compile Include="Docky.Menus\SeparatorMenuItem.cs" />
+    <Compile Include="Docky.Menus\WindowMenuItem.cs" />
+    <Compile Include="Docky.Items\Enumerable_Extensions.cs" />
+    <Compile Include="Docky.Items\AbstractDockItemProvider.cs" />
+    <Compile Include="Docky.Painters\AbstractDockPainter.cs" />
+    <Compile Include="Docky.Painters\PagingDockPainter.cs" />
+    <Compile Include="Docky.Items\PainterRequestEventArgs.cs" />
+    <Compile Include="Docky.Menus\MenuList.cs" />
+    <Compile Include="Docky.Menus\IconMenuItem.cs" />
+    <Compile Include="Docky.Items\IconEmblem.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Docky.Services\Docky.Services.csproj">
+      <Project>{8A6E0EDD-6443-4F99-9EAC-D9CC906F080D}</Project>
+      <Name>Docky.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Docky.CairoHelper\Docky.CairoHelper.csproj">
+      <Project>{B23E0EDD-6443-4F99-9EAC-B7CC906F080D}</Project>
+      <Name>Docky.CairoHelper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\apply.svg">
+      <LogicalName>apply.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\close.svg">
+      <LogicalName>close.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\maximize.svg">
+      <LogicalName>maximize.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\minimize.svg">
+      <LogicalName>minimize.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\painterleft.svg">
+      <LogicalName>painterleft.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\painterright.svg">
+      <LogicalName>painterright.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\pause.svg">
+      <LogicalName>pause.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\pin.svg">
+      <LogicalName>pin.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\play.svg">
+      <LogicalName>play.svg</LogicalName>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Resources\run.svg">
+      <LogicalName>run.svg</LogicalName>
+    </EmbeddedResource>
+  </ItemGroup>
+</Project>
