@@ -216,6 +216,7 @@ StandardPlugins/Weather/Makefile
 StandardPlugins/Weather/Resources/Weather.addin.xml
 StandardPlugins/WorkspaceSwitcher/Makefile
 StandardPlugins/WorkspaceSwitcher/Resources/WorkspaceSwitcher.addin.xml
+StandardPlugins/HelloWorld/Makefile
 Makefile
 data/Makefile
 data/icons/Makefile

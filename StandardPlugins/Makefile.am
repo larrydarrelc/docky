@@ -15,7 +15,8 @@ SUBDIRS = \
 	Timer \
 	Trash \
 	Weather \
-	WorkspaceSwitcher
+	WorkspaceSwitcher \
+	HelloWorld
 
 DIST_SUBDIRS = \
 	BatteryMonitor \
@@ -34,5 +35,5 @@ DIST_SUBDIRS = \
 	Timer \
 	Trash \
 	Weather \
-	WorkspaceSwitcher
-
+	WorkspaceSwitcher \
+	HelloWorld
