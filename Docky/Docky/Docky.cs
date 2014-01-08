@@ -50,6 +50,7 @@ namespace Docky
 			Log.Info ("CLR version: {0}", System.Environment.Version);
 			
 			//Init gtk and GLib related
+            // i18n
 			Catalog.Init ("docky", AssemblyInfo.LocaleDirectory);
 			if (!GLib.Thread.Supported)
 				GLib.Thread.Init ();
@@ -67,8 +68,11 @@ namespace Docky
 			if (!UserArgs.Parse (args))
 				return;
 			
+            // Initialize sub services
 			DockServices.Init (UserArgs.DisableDockManager, UserArgs.UseDefault);
 			
+            // WNCK setup
+            // ref: https://developer.gnome.org/libwnck/stable/getting-started.html
 			Wnck.Global.ClientType = Wnck.ClientType.Pager;
 			
 			// set process name
