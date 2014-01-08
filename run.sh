@@ -1,3 +1,3 @@
 #!/usr/bin/sh
 
-dbus-launch ./build/bin/docky
+dbus-launch ./build/bin/docky -d
