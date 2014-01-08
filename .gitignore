@@ -28,3 +28,4 @@ po/POTFILES
 po/stamp-it
 docky.schemas
 .bzr/
+log*
