@@ -54,9 +54,16 @@ namespace Docky.Services.Prefs
 		}
 		
 		public event EventHandler<PreferencesChangedEventArgs> Changed;
+
+                static bool useDefault = false;
+                public static bool UseDefault {
+                    get { return useDefault; }
+                    set { useDefault = value; }
+                }
 		
 		#region IPreferences - based on GConf
 		static Regex nameRegex = new Regex ("[^a-zA-Z0-9]");
+                // GConf Client instance, the real preference provider.
 		static Client client = new Client ();
 		
 		static readonly string GConfDockyBase = "/apps/docky-2";
@@ -65,6 +72,12 @@ namespace Docky.Services.Prefs
 		public T Get<T> (string key, T def)
 		{
 			object result;
+
+                        if (Preferences.UseDefault) {
+                            Log.Debug ("Using default preference for {0}", key);
+                            return def;
+                        }
+
 			try {
 				result = client.Get (AbsolutePathForKey (key, GConfPrefix));
 			} catch (GConf.NoSuchKeyException) {

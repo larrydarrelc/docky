@@ -33,5 +33,10 @@ namespace Docky.Services
 		{
 			return new Preferences (basePath);
 		}
+
+                public static void Initialize (bool useDefaulePrefs)
+                {
+                    Preferences.UseDefault = useDefaulePrefs;
+                }
 	}
 }

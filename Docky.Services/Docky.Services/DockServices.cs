@@ -49,9 +49,9 @@ namespace Docky.Services
 			WindowMatcher = new WindowMatcherService ();
 			DesktopItems = new DesktopItemService ();
 		}
-		
-		public static void Init (bool disableHelpers)
-		{
+
+                public static void Init (bool disableHelpers, bool useDefaultPrefs)
+                {
 			System.Initialize ();
 			if (!disableHelpers)
 				Helpers.Initialize ();
@@ -59,9 +59,10 @@ namespace Docky.Services
 			WindowMatcher.Initialize ();
 			DesktopItems.Initialize ();
 			NotificationService.Initialize ();
+                        PreferencesService.Initialize (useDefaultPrefs);
 			
 			Log<DockServices>.Info ("Dock services initialized.");
-		}
+                }
 		
 		public static void Dispose ()
 		{

@@ -67,7 +67,7 @@ namespace Docky
 			if (!UserArgs.Parse (args))
 				return;
 			
-			DockServices.Init (UserArgs.DisableDockManager);
+			DockServices.Init (UserArgs.DisableDockManager, UserArgs.UseDefault);
 			
 			Wnck.Global.ClientType = Wnck.ClientType.Pager;
 			

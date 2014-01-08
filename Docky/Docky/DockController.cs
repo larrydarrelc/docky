@@ -85,7 +85,7 @@ namespace Docky
 		public void Initialize ()
 		{
 			docks = new List<Dock> ();
-			
+
 			DetectMonitors ();
 			CreateDocks ();
 			

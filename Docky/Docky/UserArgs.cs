@@ -62,6 +62,9 @@ namespace Docky
 		/// <c>true</c> if dockmanager disabled; otherwise, <c>false</c>.
 		/// </value>
 		public static bool DisableDockManager { get; private set; }
+
+                // Use default preferences.
+                public static bool UseDefault { get; private set; }
 		
 		static bool HelpShown { get; set; }
 		static OptionSet Options { get; set; }
@@ -85,6 +88,7 @@ namespace Docky
 					} },
 				{ "b|buffer-time=", "Maximum time (in minutes) to keep buffers", (uint buf) => BufferTime = buf },
 				{ "h|?|help", "Show this help list", help => ShowHelp () },
+                                { "default-prefs", "Use default preferences", isUseDefault => UseDefault = true },
 			};
 		}
 		
