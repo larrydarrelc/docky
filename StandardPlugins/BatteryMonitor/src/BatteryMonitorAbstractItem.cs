@@ -100,7 +100,12 @@ namespace BatteryMonitor
 				GetMaxBatteryCapacity ();
 				
 				if (current_rate == 0) {
-					HoverText = string.Format ("{0:0.0}%", Capacity * 100);
+                    string status;
+                    if (charging)
+                        status = Catalog.GetString ("Charging");
+                    else
+                        status = Catalog.GetString ("Discharging");
+					HoverText = string.Format ("{0} {1:0.0}%", status, Capacity * 100);
 				} else {
 					double time = GetBatteryTime (charging);
 					int hours = (int) time;
@@ -123,9 +128,9 @@ namespace BatteryMonitor
 			bool hidden = max_capacity == -1 || /*!DockServices.System.OnBattery ||*/ Capacity > .98 || Capacity < .01;
 			
 			if (hidden && !(owner as BatteryMonitorItemProvider).Hidden)
-				Log<BatteryMonitorProcItem>.Debug ("Hiding battery item (capacity=" + Capacity +
-						") (max_capacity=" + max_capacity +
-						") (OnBattery=" + DockServices.System.OnBattery + ")");
+                Log<BatteryMonitorProcItem>.Debug ("Hiding battery item"
+                        + "(capacity={0}, max_capacity={1}, OnBattery={2})",
+                        Capacity, max_capacity, DockServices.System.OnBattery);
 
 			(owner as BatteryMonitorItemProvider).Hidden = hidden;
 			
