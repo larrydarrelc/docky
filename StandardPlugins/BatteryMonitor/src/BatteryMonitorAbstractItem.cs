@@ -72,6 +72,29 @@ namespace BatteryMonitor
 		{
 			UpdateBattStat ();
 		}
+
+        protected void ClearUrgent()
+        {
+            State &= ~ItemState.Urgent;
+            Indicator = ActivityIndicator.None;
+        }
+
+        protected void SetUrgent()
+        {
+            State |= ItemState.Urgent;
+            Indicator = ActivityIndicator.Single;
+        }
+
+        protected void CheckUrgent(bool charging)
+        {
+            ClearUrgent ();
+            if (charging)
+                return;
+
+            // TODO threshold perference setting
+            if (Capacity < .2)
+                SetUrgent ();
+        }
 		
 		protected abstract void GetMaxBatteryCapacity ();
 		
@@ -133,6 +156,8 @@ namespace BatteryMonitor
                         Capacity, max_capacity, DockServices.System.OnBattery);
 
 			(owner as BatteryMonitorItemProvider).Hidden = hidden;
+
+            CheckUrgent (charging);
 			
 			QueueRedraw ();
 
