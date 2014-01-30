@@ -1,0 +1,9 @@
+# Docky
+
+A non-official [docky](http://wiki.go-docky.com/index.php?title=Welcome_to_the_Docky_wiki) fork.
+
+
+## TODO
+
+- [?] extract settings from gconf
+- [?] systray support
